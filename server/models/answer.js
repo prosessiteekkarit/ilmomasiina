@@ -6,7 +6,7 @@ module.exports = function () {
 
   const Answer = sequelize.define('answer', {
     answer: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(6000),
       allowNull: false,
     },
   }, {

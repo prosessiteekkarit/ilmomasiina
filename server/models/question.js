@@ -14,7 +14,7 @@ module.exports = function () {
       allowNull: false,
     },
     options: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(500),
     },
     required: {
       type: Sequelize.BOOLEAN,
