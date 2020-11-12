@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import nl2br from 'react-nl2br';
 import _ from 'lodash';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
+import ReactAutolinker from 'react-autolinker';
+
 import * as SingleEventActions from '../../modules/singleEvent/actions';
 import SignupButton from './components/SignupButton';
 import SignupList from './components/SignupList';
@@ -191,7 +192,7 @@ class SingleEvent extends React.Component {
       </div>
     );
   }
-  signupButtonRenderer(event, isOpen, total, seconds, ) {
+  signupButtonRenderer(event, isOpen, total, seconds,) {
 
     return (
       <div className="sidebar-widget">
@@ -274,11 +275,11 @@ class SingleEvent extends React.Component {
                         <strong>Hinta:</strong> {event.price}
                       </p>
                     ) : null}
-                    {event.homepage ? (
+                    {event.webpageUrl ? (
                       <p>
                         <strong>Kotisivut:</strong>{' '}
-                        <a href={event.homepage} title="Kotisivut">
-                          {event.homepage}
+                        <a href={event.webpageUrl} title="Kotisivut">
+                          {event.webpageUrl}
                         </a>
                       </p>
                     ) : null}
@@ -291,7 +292,9 @@ class SingleEvent extends React.Component {
                       </p>
                     ) : null}
                   </div>
-                  <p>{nl2br(event.description)}</p>
+                  <p className="description">
+                    <ReactAutolinker text={event.description} options={{ newWindow: true, phone: false, mention: false, hashtag: false }} />
+                  </p>
                 </div>
                 <div className="col-xs-12 col-sm-4 pull-right">
                   {this.renderSignupButtons()}
