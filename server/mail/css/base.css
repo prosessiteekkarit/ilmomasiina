@@ -23,6 +23,10 @@ body {
   /*line-height: 22px;*/
 }
 
+table {
+  margin: 0 auto;
+}
+
 /* Let's make sure all tables have defaults */
 table td {
   vertical-align: top;
@@ -37,7 +41,7 @@ body {
 
 .body-wrap {
   background-color: #f6f6f6;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .container {
